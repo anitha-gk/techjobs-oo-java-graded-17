@@ -1,7 +1,27 @@
 package org.launchcode.techjobs.oo;
 
-public class Job extends JobField
+import java.util.Objects;
+
+public class Job
  {
+     public int getId() {
+         return id;
+     }
+     private static int nextId = 1;
+
+
+     public String getValue() {
+         return value;
+     }
+
+     public void setValue(String value) {
+         this.value = value;
+         this.name = value;
+     }
+
+     private String value ="";
+     public int id;
+     private String name="";
 
 
     private Employer employer;
@@ -21,13 +41,13 @@ public class Job extends JobField
     //  and id.
 
     public String getName() {
-        return super.getValue();
+        return getValue();
 
     }
 
     public void setName(String name) {
 
-        super.setValue(name);
+        setValue(name);
     }
 
     public Employer getEmployer() {
@@ -71,12 +91,13 @@ public class Job extends JobField
 
     public Job() {
 
-        super();
+        id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        super.setValue(name);
+        setValue(name);
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
@@ -88,7 +109,11 @@ public class Job extends JobField
         Job job =(Job) o;
         return getId() == job.getId();
     }
-
+     @Override
+     public int hashCode() {
+         return Objects.hash(getId());
+         //return Objects.hash(id,value);
+     }
     @Override
     public String toString() {
         //String expectedOutput = "----------\nID:Data not available\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n----------";

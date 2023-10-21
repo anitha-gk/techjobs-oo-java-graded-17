@@ -1,10 +1,7 @@
 package org.launchcode.techjobs.oo;
 
-import mockit.Expectations;
 import mockit.Mocked;
-import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -59,6 +56,7 @@ public class TestTaskFive extends AbstractTest {
         Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
         String jobString = getJobString(job);
         assertEquals(jobString, job.toString());
+
     }
 
     @Test
@@ -75,7 +73,7 @@ public class TestTaskFive extends AbstractTest {
 
     @Test
     public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-        Job job = createJob("Web Developer", "", "StL", "", "Java");
+        Job job = createJob("Data not available", "", "StL", "", "Java");
         String jobString = getJobString(job);
         assertEquals(jobString, job.toString());
     }

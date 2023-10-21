@@ -5,8 +5,8 @@ import java.util.Objects;
 public abstract class JobField {
     public int id;
     private static int nextId = 1;
-    private String value ="";
 
+    private String value ="";
     public JobField() {
         id = nextId;
         nextId++;
@@ -47,6 +47,9 @@ public abstract class JobField {
 
         this.value = value;
     }
+    public int getJobId() {
 
+        return id;
+    }
 
 }
